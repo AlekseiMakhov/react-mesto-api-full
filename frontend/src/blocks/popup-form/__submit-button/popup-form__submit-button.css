@@ -1,0 +1,25 @@
+.popup-form__submit-button {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: normal;
+    min-height: 50px;
+    margin: 48px 36px 36px 36px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+
+.popup-form__submit-button:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 620px) {
+    .popup-form__submit-button {
+        margin: 40px 20px 20px;
+        min-height: 40px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

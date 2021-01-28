@@ -1,0 +1,16 @@
+@import url(./__logo/header-mobile__logo.css);
+@import url(./__text/header-mobile__text.css);
+@import url(./__text/_type_email/header-mobile__text_type_email.css);
+@import url(./__text/_type_signout/header-mobile__text_type_signout.css);
+@import url(./__line/header-mobile__line.css);
+@import url(./__menu-button/header-mobile__menu-button.css);
+@import url(./__menu-button/_type_close/header-mobile__menu-button_type_close.css);
+
+.header-mobile {
+    margin: auto;
+    padding: 0;
+    max-width: 620px;
+    display: flex;
+    border-bottom: 1px solid rgb(59,59,59);
+    justify-content: space-between;
+}

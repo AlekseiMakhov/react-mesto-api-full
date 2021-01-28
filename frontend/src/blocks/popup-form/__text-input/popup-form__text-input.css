@@ -1,0 +1,22 @@
+.popup-form__text-input {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: normal;
+    min-height: 27px;
+    margin: 30px 36px 0;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    vertical-align: top;
+    text-overflow: ellipsis;
+    outline: 0;
+}
+
+.popup-form__text-input:first-of-type {
+    margin-top: 54px;
+}
+
+@media screen and (max-width: 620px) {
+    .popup-form__text-input {
+        margin: 24px 20px 0;
+    }
+}

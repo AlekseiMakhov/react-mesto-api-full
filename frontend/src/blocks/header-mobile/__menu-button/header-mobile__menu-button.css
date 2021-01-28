@@ -1,0 +1,19 @@
+.header-mobile__menu-button {
+    background-image: url(../../../images/Menu_icon.svg);
+    width: 24px;
+    height: 22px;
+    margin: 30px 30px 0 auto;
+    object-fit: cover;
+    background-size: cover;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    outline: 0;
+    grid-row: 4;
+    grid-column: 2;
+}
+
+.header-mobile__menu-button:hover {
+    opacity: 0.6;
+}

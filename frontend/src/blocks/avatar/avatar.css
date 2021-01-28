@@ -1,0 +1,15 @@
+@import url(./__edit-icon/avatar__edit-icon.css);
+@import url(./__img/avatar__img.css);
+
+.avatar {
+    position: relative;
+    cursor: pointer;
+}
+
+.avatar:hover .avatar__img{
+    opacity: .2;
+}
+
+.avatar:hover .avatar__edit-icon {
+    visibility: visible;
+}

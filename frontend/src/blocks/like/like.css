@@ -1,0 +1,9 @@
+@import url(../like/__button/like__button.css);
+@import url(../like/__button/_pressed/like__button_pressed.css);
+@import url(../like/__count/like__count.css);
+
+.like {
+    grid-area: el-like;
+    display: flex;
+    flex-direction: column;
+}

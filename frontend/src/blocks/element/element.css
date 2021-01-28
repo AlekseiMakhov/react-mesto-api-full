@@ -1,0 +1,15 @@
+@import url(./__image/element__image.css);
+@import url(./__text/element__text.css);
+@import url(./__trash-button/element__trash-button.css);
+@import url(./__trash-button/_visible/element__trash-button_visible.css);
+
+.element {
+    position: relative;
+    display: grid;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    grid-template-areas: 'el-image el-image el-image el-image'
+                         'el-text el-text el-text el-like';
+    grid-template-columns: repeat(4, 1fr);
+}

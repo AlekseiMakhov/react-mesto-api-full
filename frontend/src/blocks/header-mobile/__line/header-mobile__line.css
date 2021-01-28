@@ -1,0 +1,7 @@
+.header-mobile__line {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgb(59,59,59);
+    grid-row: 3;
+    grid-column: 1/3;
+}
