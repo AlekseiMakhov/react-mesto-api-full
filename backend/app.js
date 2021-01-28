@@ -8,8 +8,9 @@ const auth = require('./middlewares/auth');
 
 const allowedCors = [
   'https://chosen.students.nomoredomains.rocks',
-  'http:/chosen.students.nomoredomains.rocks',
-  'localhost:3000',
+  'http://chosen.students.nomoredomains.rocks',
+  'http://localhost:3000',
+  'https://localhost:3000',
 ];
 
 const app = express();
