@@ -8,7 +8,7 @@ const cardsRouter = require('./routes/cards');
 const auth = require('./middlewares/auth');
 
 const app = express();
-const { PORT = 3000 } = process.env;
+const { PORT = 80 } = process.env;
 
 connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: true,
