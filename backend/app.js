@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const { connect } = require('mongoose');
 const cookieParser = require('cookie-parser');
-const userRouter = require('./routes/users');
+const userRouter = require('./routes/users.js');
 const cardsRouter = require('./routes/cards');
 const auth = require('./middlewares/auth');
 
@@ -39,8 +39,8 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.use('/', userRouter); // Обработка запроса пользователей
-app.use('/', cardsRouter); // Обработка запроса карточек
+app.use('/', userRouter);
+app.use('/', cardsRouter);
 
 // Обработка запроса несуществующего адреса
 app.use('*', auth, (req, res) => {

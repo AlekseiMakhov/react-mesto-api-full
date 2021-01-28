@@ -1,4 +1,4 @@
-const BASE_URL = 'https://auth.nomoreparties.co';
+const BASE_URL = 'https://api.chosen.students.nomoredomains.rocks';
 
 export const authorize = (email, password) => {
     return fetch(`${BASE_URL}/signin`, {
