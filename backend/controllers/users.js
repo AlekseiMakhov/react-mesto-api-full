@@ -1,14 +1,26 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 const User = require('../models/User');
+
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 // добавление пользователя
 module.exports.createUser = (req, res) => {
   const {
-    email, password, name = 'Жак-Ив Кусто', about = 'Исследователь', avatar = 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
+    email,
+    password,
+    name = 'Жак-Ив Кусто',
+    about = 'Исследователь',
+    avatar = 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
   } = req.body;
-  User.create({
-    email, password, name, about, avatar,
-  })
+  bcrypt.hash(password, 10)
+    .then((hash) => User.create({
+      email,
+      password: hash,
+      name,
+      about,
+      avatar,
+    }))
     .then((user) => res.send({ data: user }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -18,10 +30,19 @@ module.exports.createUser = (req, res) => {
 };
 
 module.exports.login = (req, res) => {
-  const { email, password } = req.body;
+  const {
+    email,
+    password,
+  } = req.body;
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production'
+          ? JWT_SECRET
+          : 'dev-secret',
+        { expiresIn: '7d' },
+      );
       res.send({ token });
     })
     .catch((err) => {
