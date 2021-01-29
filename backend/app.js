@@ -21,12 +21,12 @@ app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
-
+// app.get('/crash-test', () => {
+//   setTimeout(() => {
+//     throw new Error('Сервер сейчас упадёт');
+//   }, 0);
+// });
+app.options('*', cors());
 app.use('/', userRouter);
 app.use('/', cardsRouter);
 
