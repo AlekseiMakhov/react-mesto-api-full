@@ -9,7 +9,7 @@ const auth = require('./middlewares/auth');
 const { login, createUser } = require('./controllers/users.js');
 
 const app = express();
-const { PORT = 3000 } = process.env;
+const { PORT = 80 } = process.env;
 
 connect('mongodb://localhost:27017/mestodb', {
   useUnifiedTopology: true,
