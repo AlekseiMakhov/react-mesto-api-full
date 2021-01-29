@@ -6,6 +6,7 @@ const cors = require('cors');
 const userRouter = require('./routes/users.js');
 const cardsRouter = require('./routes/cards');
 const auth = require('./middlewares/auth');
+const { login, createUser } = require('./controllers/users.js');
 
 const app = express();
 const { PORT = 3000 } = process.env;
@@ -26,9 +27,11 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-app.options('*', cors());
-app.use('/', userRouter);
-app.use('/', cardsRouter);
+
+app.post('/signin', login);
+app.post('/signup', createUser);
+app.use('/', auth, userRouter);
+app.use('/', auth, cardsRouter);
 
 // Обработка запроса несуществующего адреса
 app.use('*', auth, (req, res) => {
