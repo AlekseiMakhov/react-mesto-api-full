@@ -17,6 +17,7 @@ connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
 });
 
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
@@ -26,7 +27,6 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.use(cors());
 app.use('/', userRouter);
 app.use('/', cardsRouter);
 
