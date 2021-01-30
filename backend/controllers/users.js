@@ -21,6 +21,11 @@ module.exports.createUser = (req, res) => {
       about,
       avatar,
     }))
+    .catch((err) => {
+      if (err.code === 11000) {
+        res.status(401).send({ message: `Пользователь ${email} уже зарегистрирован` });
+      }
+    })
     .then((user) => res.send({ message: `Добавлен новый пользователь ${user.email}` }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -40,7 +45,7 @@ module.exports.login = (req, res) => {
           : 'dev-secret',
         { expiresIn: '7d' },
       );
-      res.send(token);
+      res.send({ data: token });
     })
     .catch((err) => {
       res
