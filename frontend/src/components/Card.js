@@ -8,7 +8,6 @@ const Card = ({
     onCardDeleteClick
 }) => {
     const currentUser = useContext(CurrentUserContext);
-    console.log(card.likes);
     const isOwn = card.owner === currentUser._id;
     function handleCardClick() {
       onCardClick(card);
