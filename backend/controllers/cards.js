@@ -7,7 +7,7 @@ const Card = require('../models/Card');
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   Card.create({ name, link, owner: req.user._id })
-    .populate(['owner, likes'])
+    .populate(['likes'])
     .then((card) => {
       if (!card) {
         throw new BadRequestError('Переданы некорректные данные');
@@ -57,7 +57,7 @@ module.exports.likeCard = (req, res, next) => Card.findByIdAndUpdate(
   { $addToSet: { likes: req.user._id } },
   { new: true },
 )
-  .populate(['owner, likes'])
+  .populate(['likes'])
   .then((card) => {
     if (!card) {
       throw new NotFoundError('Такой карточки нет в базе');
@@ -77,7 +77,7 @@ module.exports.dislikeCard = (req, res, next) => Card.findByIdAndUpdate(
   { $pull: { likes: req.user._id } },
   { new: true },
 )
-  .populate(['owner, likes'])
+  .populate(['likes'])
   .then((card) => {
     if (!card) {
       throw new NotFoundError('Такой карточки нет в базе');
