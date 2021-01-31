@@ -265,7 +265,6 @@ function App() {
         register(email, password)
         .then((res) => {
             if (res.id) {
-                console.log(res.id);
                 infoToolTipOpen(true);
                 setIsSignInLocation(true);
                 history.push('/signin');
