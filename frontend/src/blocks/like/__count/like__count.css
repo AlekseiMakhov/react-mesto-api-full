@@ -1,0 +1,10 @@
+.like__count {
+    font-size: 13px;
+    line-height: 1.2;
+    font-weight: normal;
+    margin: 3px auto 0;
+    color: black;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

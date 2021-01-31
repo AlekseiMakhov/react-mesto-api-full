@@ -1,0 +1,9 @@
+@import url(./__close-button/popup-image__close-button.css);
+@import url(./__image/popup-image__image.css);
+@import url(./__title/popup-image__title.css);
+
+.popup-image {
+    z-index: 2;
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+}

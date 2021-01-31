@@ -1,0 +1,8 @@
+.header-mobile__menu-button_type_close {
+    background-image: url(../../../../images/Close_Icon.svg);
+    height: 32px;
+    width: 32px;
+    margin-top: 24px;
+    margin-right: 24px;
+    transform: rotate(45deg);
+}

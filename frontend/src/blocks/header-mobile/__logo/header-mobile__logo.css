@@ -1,0 +1,11 @@
+.header-mobile__logo {
+    background-size: cover;
+    object-fit: cover;
+    width: 142px;
+    height: 34px;
+    margin: 28px auto 31px 30px;
+    width: 104px;
+    height: 24.5px;
+    grid-row: 4;
+    grid-column: 1;
+}

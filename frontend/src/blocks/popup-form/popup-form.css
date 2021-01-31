@@ -1,0 +1,29 @@
+@import url(./__title/popup-form__title.css);
+@import url(./__close-button/popup-form__close-button.css);
+@import url(./__submit-button/popup-form__submit-button.css);
+@import url(./__submit-button/_disabled/popup-form__submit-button_disabled.css);
+@import url(./__text-input/popup-form__text-input.css);
+@import url(./__text-input/_type_error/popup-form__text-input_type_error.css);
+@import url(./__error-text/popup-form__error-text.css);
+@import url(./__error-text/_show/popup-form__error-text_show.css);
+
+.popup-form {
+    width: 430px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    color: black;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
+@media screen and (max-width: 620px) {
+    .popup-form {
+        width: 250px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+    }
+}
