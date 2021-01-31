@@ -35,7 +35,7 @@ module.exports.authorizeValidator = celebrate({
   }),
 });
 
-module.exports.registerValidator = celebrate({
+module.exports.userValidator = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required().custom(passwordValidator).min(6),
