@@ -9,7 +9,7 @@ const auth = require('./middlewares/auth');
 const { login, createUser } = require('./controllers/users.js');
 const NotFoundError = require('./errorTypes/NotFoundError.js');
 const { errorLogger, requestLogger } = require('./middlewares/logger.js');
-const { authorizeValidator } = require('./middlewares/dataValidator.js');
+const { authorizeValidator, userValidator } = require('./middlewares/dataValidator.js');
 
 const app = express();
 const { PORT = 3000 } = process.env;
@@ -33,7 +33,7 @@ app.get('/crash-test', () => {
 app.use(requestLogger);
 
 app.post('/signin', authorizeValidator, login);
-app.post('/signup', authorizeValidator, createUser);
+app.post('/signup', userValidator, createUser);
 app.use('/', auth, userRouter);
 app.use('/', auth, cardsRouter);
 

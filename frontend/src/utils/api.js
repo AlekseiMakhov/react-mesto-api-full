@@ -68,7 +68,7 @@ class Api {
 
     // ставим лайк
     changeLikeStatus(cardId, isLiked, token) {
-        return this._sendRequest(`${this._baseUrl}/cards/likes/${cardId}`, {
+        return this._sendRequest(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: (isLiked ? 'PUT' : 'DELETE'),
             headers: {authorization: `Bearer ${token}`, ...this._headers},
         });
