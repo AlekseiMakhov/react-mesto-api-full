@@ -264,11 +264,11 @@ function App() {
     const onRegister = (email, password) => {
         register(email, password)
         .then((res) => {
-            console.log(res);
             if (res.id) {
+                console.log(res.id);
                 infoToolTipOpen(true);
-                history.push('/signin');
                 setIsSignInLocation(true);
+                history.push('/signin');
             }                   
         })
         .catch((err) => {
@@ -327,7 +327,6 @@ function App() {
                       
                     <Route path="/signup">
                         <Register                             
-                            // setOpen={infoToolTipOpen}
                             setSignInScreen={()=>setIsSignInLocation(true)}
                             onRegister={onRegister}
                         />
@@ -336,7 +335,6 @@ function App() {
 
                     <Route path="/signin">
                         <Login 
-                            // setOpen={infoToolTipOpen}
                             onLogin={onLogin}
                         />
                     </Route>
