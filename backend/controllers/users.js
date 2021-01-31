@@ -17,21 +17,24 @@ module.exports.createUser = (req, res, next) => {
     about = 'Исследователь',
     avatar = 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
   } = req.body;
-  bcrypt.hash(password, 10)
-    .then((hash) => User.create({
-      email,
-      password: hash,
-      name,
-      about,
-      avatar,
-    }))
+  User.findOne({ email })
+    .then((user) => {
+      if (user) {
+        throw new ConflictRequestError(`Пользователь ${email} уже зарегистрирован`);
+      }
+      return bcrypt.hash(password, 10)
+        .then((hash) => User.create({
+          email,
+          password: hash,
+          name,
+          about,
+          avatar,
+        }));
+    })
     .then((user) => {
       res.status(201).send({ email: user.email, id: user._id });
     })
     .catch((err) => {
-      if (err.code === 11000) {
-        next(new ConflictRequestError(`Пользователь ${email} уже зарегистрирован`));
-      }
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные'));
       }

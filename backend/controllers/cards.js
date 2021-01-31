@@ -56,6 +56,7 @@ module.exports.likeCard = (req, res, next) => Card.findByIdAndUpdate(
   { $addToSet: { likes: req.user._id } },
   { new: true },
 )
+  .populate(['likes'])
   .then((card) => {
     if (!card) {
       throw new NotFoundError('Такой карточки нет в базе');
@@ -75,6 +76,7 @@ module.exports.dislikeCard = (req, res, next) => Card.findByIdAndUpdate(
   { $pull: { likes: req.user._id } },
   { new: true },
 )
+  .populate(['likes'])
   .then((card) => {
     if (!card) {
       throw new NotFoundError('Такой карточки нет в базе');
