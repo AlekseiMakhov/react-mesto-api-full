@@ -47,8 +47,8 @@ module.exports.userValidator = celebrate({
 
 module.exports.userUpdateValidator = celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(100),
+    name: Joi.string().min(2).required().max(30),
+    about: Joi.string().min(2).required().max(100),
   }),
 });
 
