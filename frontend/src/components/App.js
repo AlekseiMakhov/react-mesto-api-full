@@ -145,7 +145,7 @@ function App() {
 
     // Убрать/поставить лайк карточке
     function handleCardLike(card) {
-        const isLiked = card.likes.some((i) => i._id === currentUser._id);
+        const isLiked = card.likes.some((i) => i === currentUser._id);
           api.changeLikeStatus(card._id, !isLiked, token)
             .then((newCard) => {
                 const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
