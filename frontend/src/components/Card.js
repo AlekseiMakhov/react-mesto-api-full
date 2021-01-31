@@ -15,7 +15,7 @@ const Card = ({
     }
 
     const cardDeleteButtonClassName = `element__trash-button ${isOwn ? 'element__trash-button_visible' : ''}`;
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     const cardLikeButtonClassName = `like__button ${isLiked ? 'like__button_pressed' : ''}`;
 
     return (
