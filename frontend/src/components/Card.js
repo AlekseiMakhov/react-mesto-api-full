@@ -9,7 +9,7 @@ const Card = ({
 }) => {
     const currentUser = useContext(CurrentUserContext);
     
-    const isOwn = card.owner === currentUser._id;
+    const isOwn = card.owner._id === currentUser._id;
     function handleCardClick() {
       onCardClick(card);
     }
